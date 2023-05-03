@@ -28,7 +28,7 @@ class CustomTheme {
           backgroundColor: CustomColor.primaryColor,
           textStyle: const TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w500,
             height: 1.4,
           ),
           elevation: 0,
