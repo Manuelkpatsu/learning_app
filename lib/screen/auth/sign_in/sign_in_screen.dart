@@ -24,6 +24,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _obscureLoginPasswordText = true;
 
   @override
   void dispose() {
@@ -60,7 +61,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 PasswordInputField(
                   controller: _passwordController,
                   hintText: 'Password',
-                  suffixIcon: const Icon(Icons.check, color: CustomColor.textFieldBorderColor),
+                  obscureText: _obscureLoginPasswordText,
+                  toggle: () =>
+                      setState(() => _obscureLoginPasswordText = !_obscureLoginPasswordText),
                   inputAction: TextInputAction.done,
                   validator: Validator.password,
                 ),

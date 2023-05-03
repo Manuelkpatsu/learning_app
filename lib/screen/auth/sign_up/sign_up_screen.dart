@@ -26,6 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _obscureRegisterPasswordText = true;
 
   @override
   void dispose() {
@@ -72,9 +73,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 PasswordInputField(
                   controller: _passwordController,
                   hintText: 'Password',
-                  suffixIcon: const Icon(Icons.check, color: CustomColor.textFieldBorderColor),
+                  obscureText: _obscureRegisterPasswordText,
                   inputAction: TextInputAction.done,
                   validator: Validator.password,
+                  toggle: () =>
+                      setState(() => _obscureRegisterPasswordText = !_obscureRegisterPasswordText),
                 ),
                 const SizedBox(height: 15),
                 const SignUpOrText(),

@@ -15,6 +15,8 @@ class PasswordInputField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Color? fillColor;
+  final VoidCallback? toggle;
+  final bool? obscureText;
 
   const PasswordInputField({
     Key? key,
@@ -31,6 +33,8 @@ class PasswordInputField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.fillColor,
+    this.toggle,
+    this.obscureText,
   }) : super(key: key);
 
   @override
@@ -38,7 +42,7 @@ class PasswordInputField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       onChanged: onChanged,
-      obscureText: true,
+      obscureText: obscureText!,
       cursorColor: CustomColor.primaryColor,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       style: const TextStyle(
@@ -51,7 +55,13 @@ class PasswordInputField extends StatelessWidget {
         contentPadding: contentPadding,
         isDense: isDense,
         prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
+        suffixIcon: suffixIcon ??
+            IconButton(
+              icon: obscureText!
+                  ? const Icon(Icons.visibility_off, color: CustomColor.textFieldBorderColor)
+                  : const Icon(Icons.visibility, color: CustomColor.textFieldBorderColor),
+              onPressed: toggle,
+            ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
           borderSide: const BorderSide(color: CustomColor.textFieldBorderColor, width: 1.0),
