@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/screen/auth/sign_up/sign_up_screen.dart';
+import 'package:learning_app/screen/auth/sign_in/sign_in_screen.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/password_input_field.dart';
 import 'package:learning_app/screen/widget/text_input_field.dart';
 import 'package:learning_app/theme/custom_color.dart';
 import 'package:learning_app/utils/validator.dart';
 
-import 'widget/create_account.dart';
-import 'widget/forgot_password_button.dart';
-import 'widget/sign_in_image.dart';
-import 'widget/sign_in_text.dart';
+import 'widget/already_have_account.dart';
+import 'widget/facebook_button.dart';
+import 'widget/sign_up_image.dart';
+import 'widget/sign_up_or_text.dart';
+import 'widget/sign_up_text.dart';
 
-class SignInScreen extends StatefulWidget {
-  static const routeName = '/sign_in';
+class SignUpScreen extends StatefulWidget {
+  static const routeName = '/sign_up';
 
-  const SignInScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
+class _SignUpScreenState extends State<SignUpScreen> {
+  final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
+  final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
+    _fullNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -40,14 +43,23 @@ class _SignInScreenState extends State<SignInScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Form(
-            key: _loginFormKey,
+            key: _registerFormKey,
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                const SignInImage(),
+                const SignUpImage(),
                 const SizedBox(height: 20),
-                const SignInText(),
+                const SignUpText(),
                 const SizedBox(height: 20),
+                TextInputField(
+                  controller: _fullNameController,
+                  hintText: 'Name',
+                  suffixIcon: const Icon(Icons.check, color: CustomColor.textFieldBorderColor),
+                  textCapitalization: TextCapitalization.words,
+                  inputAction: TextInputAction.next,
+                  validator: Validator.fullName,
+                ),
+                const SizedBox(height: 18),
                 TextInputField(
                   controller: _emailController,
                   hintText: 'Email',
@@ -64,21 +76,23 @@ class _SignInScreenState extends State<SignInScreen> {
                   inputAction: TextInputAction.done,
                   validator: Validator.password,
                 ),
-                const SizedBox(height: 11),
-                ForgotPasswordButton(onTap: () {}),
-                const SizedBox(height: 25),
+                const SizedBox(height: 15),
+                const SignUpOrText(),
+                const SizedBox(height: 15),
+                FacebookButton(onPressed: () {}),
+                const SizedBox(height: 18),
                 GradientButton(
                   onPressed: () {
-                    if (_loginFormKey.currentState!.validate()) {
-                      debugPrint('Login successfully!');
+                    if (_registerFormKey.currentState!.validate()) {
+                      debugPrint('Sign up successful!');
                     }
                   },
-                  widget: const Text('Login'),
+                  widget: const Text('Sign up'),
                 ),
                 const SizedBox(height: 20),
-                CreateAccount(
+                AlreadyHaveAccount(
                   onTap: () {
-                    Navigator.of(context).pushNamed(SignUpScreen.routeName);
+                    Navigator.of(context).pushNamed(SignInScreen.routeName);
                   },
                 ),
                 const SizedBox(height: 50),

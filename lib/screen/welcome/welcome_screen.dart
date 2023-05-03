@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/screen/auth/sign_in/sign_in_screen.dart';
+import 'package:learning_app/screen/auth/sign_up/sign_up_screen.dart';
 import 'package:learning_app/screen/widget/custom_button.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 
@@ -16,6 +17,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -45,7 +47,12 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 43),
               child: GradientButton(
                 widget: const Text('Sign up'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    SignUpScreen.routeName,
+                    (route) => false,
+                  );
+                },
               ),
             ),
           ],
