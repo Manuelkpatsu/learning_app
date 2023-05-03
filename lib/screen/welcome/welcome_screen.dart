@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screen/auth/sign_in/sign_in_screen.dart';
 import 'package:learning_app/screen/widget/custom_button.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 
@@ -29,7 +30,12 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 43),
               child: CustomButton(
                 widget: const Text('Sign in'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    SignInScreen.routeName,
+                    (route) => false,
+                  );
+                },
               ),
             ),
             const SizedBox(height: 20),
