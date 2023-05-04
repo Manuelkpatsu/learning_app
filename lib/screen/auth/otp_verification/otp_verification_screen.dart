@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:learning_app/screen/auth/reset_password/reset_password_screen.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/theme/custom_color.dart';
 import 'package:learning_app/utils/validator.dart';
@@ -79,7 +80,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 child: GradientButton(
                   onPressed: () {
                     if (_otpFormKey.currentState!.validate()) {
-                      debugPrint('Successful!');
+                      Navigator.of(context).pushNamed(ResetPasswordScreen.routeName);
                     }
                   },
                   widget: const Text('Continue'),
