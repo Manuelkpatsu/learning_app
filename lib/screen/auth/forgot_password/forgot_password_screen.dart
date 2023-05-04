@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screen/auth/otp_verification/otp_verification_screen.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/text_input_field.dart';
 import 'package:learning_app/theme/custom_color.dart';
@@ -32,45 +33,42 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(backgroundColor: Colors.white),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Form(
-            key: _forgotPasswordFormKey,
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                const ForgotPasswordImage(),
-                const SizedBox(height: 50),
-                const ForgotPasswordText(),
-                const SizedBox(height: 10),
-                const ForgotPasswordInfoText(),
-                const SizedBox(height: 40),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: TextInputField(
-                    controller: _emailController,
-                    hintText: 'Email',
-                    suffixIcon: const Icon(Icons.check, color: CustomColor.textFieldBorderColor),
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
-                    validator: Validator.email,
-                  ),
+      body: SingleChildScrollView(
+        child: Form(
+          key: _forgotPasswordFormKey,
+          child: Column(
+            children: [
+              const ForgotPasswordImage(),
+              const SizedBox(height: 50),
+              const ForgotPasswordText(),
+              const SizedBox(height: 10),
+              const ForgotPasswordInfoText(),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: TextInputField(
+                  controller: _emailController,
+                  hintText: 'Email',
+                  suffixIcon: const Icon(Icons.check, color: CustomColor.textFieldBorderColor),
+                  inputType: TextInputType.emailAddress,
+                  inputAction: TextInputAction.done,
+                  validator: Validator.email,
                 ),
-                const SizedBox(height: 18),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: GradientButton(
-                    onPressed: () {
-                      if (_forgotPasswordFormKey.currentState!.validate()) {
-                        debugPrint('Successful!');
-                      }
-                    },
-                    widget: const Text('Send Email'),
-                  ),
+              ),
+              const SizedBox(height: 18),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: GradientButton(
+                  onPressed: () {
+                    if (_forgotPasswordFormKey.currentState!.validate()) {
+                      Navigator.of(context).pushNamed(OTPVerificationScreen.routeName);
+                    }
+                  },
+                  widget: const Text('Send Email'),
                 ),
-                const SizedBox(height: 50),
-              ],
-            ),
+              ),
+              const SizedBox(height: 50),
+            ],
           ),
         ),
       ),
