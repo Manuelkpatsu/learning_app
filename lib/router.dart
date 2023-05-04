@@ -6,6 +6,12 @@ import 'screen/auth/password_changed_success/password_reset_success_screen.dart'
 import 'screen/auth/reset_password/reset_password_screen.dart';
 import 'screen/auth/sign_in/sign_in_screen.dart';
 import 'screen/auth/sign_up/sign_up_screen.dart';
+import 'screen/main/app.dart';
+import 'screen/main/explore/explore_screen.dart';
+import 'screen/main/home/home_screen.dart';
+import 'screen/main/my_courses/my_courses_screen.dart';
+import 'screen/main/profile/profile_screen.dart';
+import 'screen/main/progress/progress_screen.dart';
 import 'screen/onboard/onboard_screen.dart';
 import 'screen/splash/splash_screen.dart';
 import 'screen/welcome/welcome_screen.dart';
@@ -30,6 +36,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
     case PasswordResetSuccessScreen.routeName:
       return MaterialPageRoute(builder: (_) => const PasswordResetSuccessScreen());
+    case MainApp.routeName:
+      return MaterialPageRoute(builder: (_) => const MainApp());
+    case HomeScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const HomeScreen());
+    case ExploreScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const ExploreScreen());
+    case ProgressScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const ProgressScreen());
+    case MyCoursesScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const MyCoursesScreen());
+    case ProfileScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const ProfileScreen());
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

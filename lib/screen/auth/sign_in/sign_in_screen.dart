@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/screen/auth/forgot_password/forgot_password_screen.dart';
 import 'package:learning_app/screen/auth/sign_up/sign_up_screen.dart';
+import 'package:learning_app/screen/main/app.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/password_input_field.dart';
 import 'package:learning_app/screen/widget/text_input_field.dart';
@@ -78,7 +79,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 GradientButton(
                   onPressed: () {
                     if (_loginFormKey.currentState!.validate()) {
-                      debugPrint('Login successfully!');
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        MainApp.routeName,
+                        (route) => false,
+                      );
                     }
                   },
                   widget: const Text('Login'),
