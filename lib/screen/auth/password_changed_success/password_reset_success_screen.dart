@@ -19,7 +19,7 @@ class PasswordResetSuccessScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             const PasswordSuccessImage(),
             const SizedBox(height: 40),
             const CheckImage(),
