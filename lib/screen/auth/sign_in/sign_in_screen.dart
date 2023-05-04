@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screen/auth/forgot_password/forgot_password_screen.dart';
 import 'package:learning_app/screen/auth/sign_up/sign_up_screen.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/password_input_field.dart';
@@ -68,7 +69,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   validator: Validator.password,
                 ),
                 const SizedBox(height: 11),
-                ForgotPasswordButton(onTap: () {}),
+                ForgotPasswordButton(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ForgotPasswordScreen.routeName);
+                  },
+                ),
                 const SizedBox(height: 25),
                 GradientButton(
                   onPressed: () {
