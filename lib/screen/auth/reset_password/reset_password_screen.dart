@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/screen/auth/sign_in/sign_in_screen.dart';
+import 'package:learning_app/screen/auth/password_changed_success/password_reset_success_screen.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/password_input_field.dart';
 import 'package:learning_app/utils/validator.dart';
@@ -104,7 +104,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   onPressed: () {
                     if (_resetPasswordFormKey.currentState!.validate()) {
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                        SignInScreen.routeName,
+                        PasswordResetSuccessScreen.routeName,
                         (route) => false,
                       );
                     }
