@@ -35,6 +35,8 @@ class CustomColor {
   static const Color neutralColor = Color(0xfffef1f1);
   static const Color lightMauveColor = Color(0xfff1efff);
   static const Color lightBlueColor = Color(0xffeef5ff);
+  static const Color lightBrownColor = Color(0xfffff3f3);
+  static const Color lightYellowColor = Color(0xfffffaf1);
   static const Color rateTextColor = Color(0xff4b4a50);
   static const Color statisticsColor = Color(0xff85848a);
   static const Color totalRatingsColor = Color(0xff8a8a8f);
@@ -42,4 +44,14 @@ class CustomColor {
   static const Color reviewTextColor = Color(0xff222222);
   static const Color dividerColor = Color(0xffe2e2e2);
   static const Color appBarIconColor = Color(0xff200e32);
+  static const Color iconShadowColor = Color(0xff254460);
+
+  static const values = [
+    lightGreenColor,
+    lightBlueColor,
+    lightMauveColor,
+    lightBrownColor,
+    lightYellowColor,
+    neutralColor,
+  ];
 }
