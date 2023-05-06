@@ -9,6 +9,7 @@ import 'screen/auth/sign_up/sign_up_screen.dart';
 import 'screen/main/app.dart';
 import 'screen/main/explore/explore_screen.dart';
 import 'screen/main/home/home_screen.dart';
+import 'screen/main/invite_friends/invite_friends_screen.dart';
 import 'screen/main/my_courses/my_courses_screen.dart';
 import 'screen/main/profile/profile_screen.dart';
 import 'screen/main/progress/progress_screen.dart';
@@ -48,6 +49,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const MyCoursesScreen());
     case ProfileScreen.routeName:
       return MaterialPageRoute(builder: (_) => const ProfileScreen());
+    case InviteFriendsScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const InviteFriendsScreen());
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(
