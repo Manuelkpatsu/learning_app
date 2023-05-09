@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/screen/widget/border_icon.dart';
 import 'package:learning_app/theme/custom_color.dart';
+import 'package:learning_app/utils/duration_format.dart';
 
 class CourseDuration extends StatelessWidget {
   final Duration duration;
@@ -14,7 +15,7 @@ class CourseDuration extends StatelessWidget {
         const BorderIcon(icon: Icons.access_time_rounded),
         const SizedBox(width: 6),
         Text(
-          '${duration.inHours}hr ${duration.inMinutes}min',
+          DurationFormat.formatDuration(duration),
           style: const TextStyle(
             color: CustomColor.bodyColor,
             fontSize: 11,

@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
         rate: 4.5,
         totalNumberOfStudents: 1205,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'UX/UI Design is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
         rate: 0.0,
         totalNumberOfStudents: 1205,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'Chemistry is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
         rate: 3.5,
         totalNumberOfStudents: 605,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'Finance & Banking is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
         rate: 4.5,
         totalNumberOfStudents: 1205,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'Web Design is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
@@ -135,7 +135,7 @@ class HomeScreen extends StatelessWidget {
         rate: 0.0,
         totalNumberOfStudents: 1205,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'Biology is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
@@ -156,7 +156,7 @@ class HomeScreen extends StatelessWidget {
         rate: 3.5,
         totalNumberOfStudents: 605,
         costOfCourse: 30.0,
-        courseDuration: Duration(days: 0, hours: 3, minutes: 45),
+        courseDuration: Duration(hours: 3, minutes: 45),
         description:
             'Economics is the best demandable course in the present world. It\'s making focus point how to use easier way, like production Apps.',
         instructor: Instructor(
