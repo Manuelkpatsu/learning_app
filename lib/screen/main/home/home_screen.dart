@@ -175,10 +175,10 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   HomeWelcomeText(),
                   AppUserNameText(name: 'Manuel Nartey'),
                 ],
