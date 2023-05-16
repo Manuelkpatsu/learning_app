@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/theme/custom_color.dart';
+import 'package:iconly/iconly.dart';
 
-class VideoChatButton extends StatelessWidget {
+class TextChatButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
-  const VideoChatButton({Key? key, required this.onPressed}) : super(key: key);
+  const TextChatButton({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: CustomColor.primaryColor,
-        foregroundColor: Colors.white,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          side: BorderSide(color: Colors.black.withOpacity(0.5), width: 0.5),
         ),
         minimumSize: const Size(101, 36),
       ),
-      child: const Icon(Icons.videocam_outlined, size: 24),
+      child: const Icon(IconlyLight.chat, size: 24),
     );
   }
 }

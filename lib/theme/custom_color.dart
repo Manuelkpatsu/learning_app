@@ -46,6 +46,7 @@ class CustomColor {
   static const Color appBarIconColor = Color(0xff200e32);
   static const Color iconShadowColor = Color(0xff254460);
   static const Color profileIconColor = Color(0xff2e2e2e);
+  static const Color photoBackgroundColor = Color(0xffc4c4c4);
 
   static const values = [
     lightGreenColor,

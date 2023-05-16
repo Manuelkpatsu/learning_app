@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
-class InstructorText extends StatelessWidget {
-  const InstructorText({Key? key}) : super(key: key);
+class InstructorNameText extends StatelessWidget {
+  final String name;
+
+  const InstructorNameText({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'Instructor',
-      style: TextStyle(
+    return Text(
+      name,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(
         color: CustomColor.titleColor,
         fontSize: 12,
         fontWeight: FontWeight.w700,

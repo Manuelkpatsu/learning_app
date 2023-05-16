@@ -21,55 +21,58 @@ class CourseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(10),
-      child: Ink(
-        padding: const EdgeInsets.all(9),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: CustomColor.containerShadowColor.withOpacity(0.12),
-              offset: const Offset(0, 15),
-              blurRadius: 60,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            CourseImage(image: course.image),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(10),
+        child: Ink(
+          padding: const EdgeInsets.all(9),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: CustomColor.containerShadowColor.withOpacity(0.12),
+                offset: const Offset(0, 15),
+                blurRadius: 60,
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              CourseImage(image: course.image),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CourseNameText(name: course.name),
+                          CourseRating(rating: course.rate),
+                          CourseDuration(duration: course.courseDuration),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        CourseNameText(name: course.name),
-                        CourseRating(rating: course.rate),
-                        CourseDuration(duration: course.courseDuration),
+                        const ArrowIcon(),
+                        const SizedBox(height: 4),
+                        CourseCost(amount: course.costOfCourse),
                       ],
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const ArrowIcon(),
-                      const SizedBox(height: 4),
-                      CourseCost(amount: course.costOfCourse),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
-class TotalRatings extends StatelessWidget {
-  final double ratings;
+class TotalComments extends StatelessWidget {
+  final int totalComments;
 
-  const TotalRatings({Key? key, required this.ratings}) : super(key: key);
+  const TotalComments({Key? key, required this.totalComments}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final formattedRatings = ratings.toStringAsFixed(1);
+    final formattedComments = NumberFormat.compact().format(totalComments);
 
     return Row(
       children: [
-        const Icon(Icons.star, size: 12, color: CustomColor.titleColor),
+        const Icon(Icons.message, size: 12, color: CustomColor.titleColor),
         const SizedBox(width: 6),
         Text(
-          formattedRatings,
+          formattedComments,
           style: const TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.w500,
