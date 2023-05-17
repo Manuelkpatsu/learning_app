@@ -3,7 +3,9 @@ import 'package:iconly/iconly.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
 class ArrowIcon extends StatelessWidget {
-  const ArrowIcon({Key? key}) : super(key: key);
+  final IconData icon;
+
+  const ArrowIcon({Key? key, this.icon = IconlyLight.arrow_right_2}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class ArrowIcon extends StatelessWidget {
         shape: BoxShape.circle,
         color: CustomColor.blueColor,
       ),
-      child: const Icon(IconlyLight.arrow_right_2, size: 22, color: Colors.white),
+      child: Icon(icon, size: 22, color: Colors.white),
     );
   }
 }

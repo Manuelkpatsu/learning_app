@@ -13,6 +13,15 @@ class CustomGradient {
       CustomColor.gradientColorTwo,
     ],
   );
+
+  static const LinearGradient priceGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      CustomColor.yellowColor,
+      CustomColor.orangeColor,
+    ],
+  );
 }
 
 final Shader textLinearGradient = CustomGradient.primaryGradient.createShader(

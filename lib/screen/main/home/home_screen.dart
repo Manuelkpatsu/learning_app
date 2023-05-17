@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/models/category.dart';
 import 'package:learning_app/models/course.dart';
 import 'package:learning_app/models/instructor.dart';
+import 'package:learning_app/screen/main/course_detail/course_detail_screen.dart';
 import 'package:learning_app/screen/main/invite_friends/invite_friends_screen.dart';
 import 'package:learning_app/screen/widget/category_tile/category_tile.dart';
 import 'package:learning_app/screen/widget/course_tile/course_tile.dart';
@@ -258,7 +259,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: CourseTile(
                     course: course,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        CourseDetailScreen.routeName,
+                        arguments: course,
+                      );
+                    },
                   ),
                 );
               }).toList(),
@@ -285,7 +291,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: CourseTile(
                     course: course,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        CourseDetailScreen.routeName,
+                        arguments: course,
+                      );
+                    },
                   ),
                 );
               }).toList(),

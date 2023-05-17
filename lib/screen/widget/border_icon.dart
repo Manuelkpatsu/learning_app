@@ -3,19 +3,30 @@ import 'package:learning_app/theme/custom_color.dart';
 
 class BorderIcon extends StatelessWidget {
   final IconData icon;
+  final Color iconColor;
+  final double size;
+  final double iconSize;
+  final double borderRadius;
 
-  const BorderIcon({Key? key, required this.icon}) : super(key: key);
+  const BorderIcon({
+    Key? key,
+    required this.icon,
+    this.iconColor = Colors.black,
+    this.size = 18,
+    this.iconSize = 12,
+    this.borderRadius = 7,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 18,
-      height: 18,
+      width: size,
+      height: size,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
+        borderRadius: BorderRadius.circular(borderRadius),
         color: Colors.white,
-        border: Border.all(color: CustomColor.iconBorderColor, width: 0.5),
+        border: Border.all(color: CustomColor.iconBorderColor, width: 1),
         boxShadow: [
           BoxShadow(
             color: CustomColor.iconShadowColor.withOpacity(0.15),
@@ -24,7 +35,7 @@ class BorderIcon extends StatelessWidget {
           ),
         ],
       ),
-      child: Icon(icon, size: 12, color: Colors.black),
+      child: Icon(icon, size: iconSize, color: iconColor),
     );
   }
 }

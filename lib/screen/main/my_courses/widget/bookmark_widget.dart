@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/models/course.dart';
+import 'package:learning_app/screen/main/course_detail/course_detail_screen.dart';
 import 'package:learning_app/screen/widget/course_tile/course_tile.dart';
 
 class BookmarkWidget extends StatelessWidget {
@@ -18,7 +19,12 @@ class BookmarkWidget extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.only(bottom: index == bookmarks.length - 1 ? 0 : 16),
             child: CourseTile(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  CourseDetailScreen.routeName,
+                  arguments: course,
+                );
+              },
               course: course,
             ),
           );

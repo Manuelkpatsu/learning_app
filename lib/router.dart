@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/models/course.dart';
 
 import 'screen/auth/forgot_password/forgot_password_screen.dart';
 import 'screen/auth/otp_verification/otp_verification_screen.dart';
@@ -7,6 +8,7 @@ import 'screen/auth/reset_password/reset_password_screen.dart';
 import 'screen/auth/sign_in/sign_in_screen.dart';
 import 'screen/auth/sign_up/sign_up_screen.dart';
 import 'screen/main/app.dart';
+import 'screen/main/course_detail/course_detail_screen.dart';
 import 'screen/main/explore/explore_screen.dart';
 import 'screen/main/home/home_screen.dart';
 import 'screen/main/invite_friends/invite_friends_screen.dart';
@@ -51,6 +53,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const ProfileScreen());
     case InviteFriendsScreen.routeName:
       return MaterialPageRoute(builder: (_) => const InviteFriendsScreen());
+    case CourseDetailScreen.routeName:
+      Course argument = settings.arguments as Course;
+      return MaterialPageRoute(builder: (_) => CourseDetailScreen(course: argument));
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

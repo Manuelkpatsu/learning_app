@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
 import 'instructor_course_text.dart';
-import 'instructor_image.dart';
-import 'instructor_name_text.dart';
+import '../../../widget/instructor_image.dart';
+import '../../../widget/instructor_name_text.dart';
 import 'instructor_text.dart';
 import 'live_chat_text.dart';
 import 'text_chat_button.dart';
