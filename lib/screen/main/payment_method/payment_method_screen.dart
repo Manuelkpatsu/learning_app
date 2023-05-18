@@ -4,6 +4,7 @@ import 'package:learning_app/models/course.dart';
 import 'package:learning_app/models/payment_method.dart';
 import 'package:learning_app/models/payment_type.dart';
 import 'package:learning_app/screen/main/add_payment_method/add_payment_method_screen.dart';
+import 'package:learning_app/screen/main/payment_success/payment_success_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/theme/custom_color.dart';
@@ -127,7 +128,14 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       bottomSheet: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
         child: GradientButton(
-          onPressed: _selectedPaymentMethod == null ? null : () {},
+          onPressed: _selectedPaymentMethod == null
+              ? null
+              : () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    PaymentSuccessScreen.routeName,
+                    (route) => false,
+                  );
+                },
           widget: const Row(
             children: [
               Expanded(
