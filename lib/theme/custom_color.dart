@@ -47,6 +47,7 @@ class CustomColor {
   static const Color iconShadowColor = Color(0xff254460);
   static const Color profileIconColor = Color(0xff2e2e2e);
   static const Color photoBackgroundColor = Color(0xffc4c4c4);
+  static const Color unselectedRadioButtonColor = Color(0xff9f9f9f);
 
   static const values = [
     lightGreenColor,

@@ -13,6 +13,7 @@ import 'screen/main/explore/explore_screen.dart';
 import 'screen/main/home/home_screen.dart';
 import 'screen/main/invite_friends/invite_friends_screen.dart';
 import 'screen/main/my_courses/my_courses_screen.dart';
+import 'screen/main/payment_method/payment_method_screen.dart';
 import 'screen/main/profile/profile_screen.dart';
 import 'screen/main/progress/progress_screen.dart';
 import 'screen/onboard/onboard_screen.dart';
@@ -56,6 +57,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case CourseDetailScreen.routeName:
       Course argument = settings.arguments as Course;
       return MaterialPageRoute(builder: (_) => CourseDetailScreen(course: argument));
+    case PaymentMethodScreen.routeName:
+      Course argument = settings.arguments as Course;
+      return MaterialPageRoute(builder: (_) => PaymentMethodScreen(course: argument));
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

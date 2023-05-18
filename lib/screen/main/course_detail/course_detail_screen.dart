@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:learning_app/models/course.dart';
+import 'package:learning_app/screen/main/payment_method/payment_method_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 
@@ -43,6 +44,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
           return "Gra";
       }
     }
+
     String previewText() {
       switch (_selectedCourseDetail) {
         case CourseDetail.overview:
@@ -126,7 +128,9 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
       bottomSheet: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 30),
         child: GradientButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(PaymentMethodScreen.routeName, arguments: course);
+          },
           widget: const Row(
             children: [
               Expanded(

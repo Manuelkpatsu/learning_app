@@ -22,6 +22,15 @@ class CustomGradient {
       CustomColor.orangeColor,
     ],
   );
+
+  static LinearGradient cardGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      CustomColor.blueColor,
+      CustomColor.primaryColor.withOpacity(0.9),
+    ],
+  );
 }
 
 final Shader textLinearGradient = CustomGradient.primaryGradient.createShader(
