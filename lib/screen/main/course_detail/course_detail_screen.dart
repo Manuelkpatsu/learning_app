@@ -4,6 +4,8 @@ import 'package:learning_app/models/course.dart';
 import 'package:learning_app/screen/main/payment_method/payment_method_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
+import 'package:learning_app/theme/custom_color.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'widget/certificate_widget.dart';
 import 'widget/course_detail.dart';
@@ -12,6 +14,7 @@ import 'widget/course_details.dart';
 import 'widget/course_info.dart';
 import 'widget/information_widget.dart';
 import 'widget/introduction_video_button.dart';
+import 'widget/introduction_video_widget.dart';
 import 'widget/overview_widget.dart';
 import 'widget/preview_course_text.dart';
 
@@ -81,7 +84,17 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
             const SizedBox(height: 16),
             PreviewCourseText(title: previewText()),
             const SizedBox(height: 16),
-            IntroductionVideoButton(onTap: () {}),
+            IntroductionVideoButton(
+              onTap: () {
+                showCupertinoModalBottomSheet(
+                  context: context,
+                  builder: (ctx) => IntroductionVideoWidget(course: course),
+                  expand: true,
+                  enableDrag: false,
+                  barrierColor: CustomColor.overlayColor.withOpacity(0.22),
+                );
+              },
+            ),
             const SizedBox(height: 16),
             CourseDetails(
               filterButtons: ListView.builder(

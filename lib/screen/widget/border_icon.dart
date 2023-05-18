@@ -7,6 +7,7 @@ class BorderIcon extends StatelessWidget {
   final double size;
   final double iconSize;
   final double borderRadius;
+  final BoxShape shape;
 
   const BorderIcon({
     Key? key,
@@ -15,6 +16,7 @@ class BorderIcon extends StatelessWidget {
     this.size = 18,
     this.iconSize = 12,
     this.borderRadius = 7,
+    this.shape = BoxShape.rectangle,
   }) : super(key: key);
 
   @override
@@ -24,7 +26,8 @@ class BorderIcon extends StatelessWidget {
       height: size,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: shape == BoxShape.circle ? null : BorderRadius.circular(borderRadius),
+        shape: shape,
         color: Colors.white,
         border: Border.all(color: CustomColor.iconBorderColor, width: 1),
         boxShadow: [
