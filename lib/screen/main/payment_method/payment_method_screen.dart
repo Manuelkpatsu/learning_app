@@ -3,6 +3,7 @@ import 'package:iconly/iconly.dart';
 import 'package:learning_app/models/course.dart';
 import 'package:learning_app/models/payment_method.dart';
 import 'package:learning_app/models/payment_type.dart';
+import 'package:learning_app/screen/main/add_payment_method/add_payment_method_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/theme/custom_color.dart';
@@ -78,7 +79,9 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         actions: [
           IconButton(
             splashRadius: 20,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AddPaymentMethodScreen.routeName);
+            },
             icon: const Icon(
               Icons.add_circle_outline_rounded,
               color: CustomColor.primaryColor,

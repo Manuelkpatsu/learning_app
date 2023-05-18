@@ -93,10 +93,10 @@ class PasswordInputField extends StatelessWidget {
           color: CustomColor.textFieldBorderColor,
           height: 1.38,
         ),
-        errorStyle: TextStyle(
-          fontSize: 18,
+        errorStyle: const TextStyle(
+          fontSize: 12,
           fontWeight: FontWeight.w400,
-          color: CustomColor.errorColor.withOpacity(0.53),
+          color: CustomColor.errorColor,
           height: 1.38,
         ),
       ),

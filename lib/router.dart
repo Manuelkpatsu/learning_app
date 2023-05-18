@@ -7,6 +7,7 @@ import 'screen/auth/password_changed_success/password_reset_success_screen.dart'
 import 'screen/auth/reset_password/reset_password_screen.dart';
 import 'screen/auth/sign_in/sign_in_screen.dart';
 import 'screen/auth/sign_up/sign_up_screen.dart';
+import 'screen/main/add_payment_method/add_payment_method_screen.dart';
 import 'screen/main/app.dart';
 import 'screen/main/course_detail/course_detail_screen.dart';
 import 'screen/main/explore/explore_screen.dart';
@@ -60,6 +61,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case PaymentMethodScreen.routeName:
       Course argument = settings.arguments as Course;
       return MaterialPageRoute(builder: (_) => PaymentMethodScreen(course: argument));
+    case AddPaymentMethodScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const AddPaymentMethodScreen());
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(
