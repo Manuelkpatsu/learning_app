@@ -8,8 +8,15 @@ import 'live_courses_text.dart';
 
 class LiveSessionsWidget extends StatelessWidget {
   final List<Course> liveCourses;
+  final VoidCallback? onCallPressed;
+  final VoidCallback? onChatPressed;
 
-  const LiveSessionsWidget({Key? key, required this.liveCourses}) : super(key: key);
+  const LiveSessionsWidget({
+    Key? key,
+    required this.liveCourses,
+    required this.onCallPressed,
+    required this.onChatPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +55,14 @@ class LiveSessionsWidget extends StatelessWidget {
               },
             ),
           ),
-          const SliverPadding(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            sliver: SliverToBoxAdapter(child: LiveChatInstructor()),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            sliver: SliverToBoxAdapter(
+              child: LiveChatInstructor(
+                onCallPressed: onCallPressed,
+                onChatPressed: onChatPressed,
+              ),
+            ),
           ),
         ],
       ),

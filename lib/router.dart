@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/models/course.dart';
+import 'package:learning_app/models/instructor.dart';
 
 import 'screen/auth/forgot_password/forgot_password_screen.dart';
 import 'screen/auth/otp_verification/otp_verification_screen.dart';
@@ -9,6 +10,7 @@ import 'screen/auth/sign_in/sign_in_screen.dart';
 import 'screen/auth/sign_up/sign_up_screen.dart';
 import 'screen/main/add_payment_method/add_payment_method_screen.dart';
 import 'screen/main/app.dart';
+import 'screen/main/call_screen/call_screen.dart';
 import 'screen/main/course_detail/course_detail_screen.dart';
 import 'screen/main/explore/explore_screen.dart';
 import 'screen/main/home/home_screen.dart';
@@ -66,6 +68,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const AddPaymentMethodScreen());
     case PaymentSuccessScreen.routeName:
       return MaterialPageRoute(builder: (_) => const PaymentSuccessScreen());
+    case CallScreen.routeName:
+      Instructor argument = settings.arguments as Instructor;
+      return MaterialPageRoute(builder: (_) => CallScreen(instructor: argument));
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

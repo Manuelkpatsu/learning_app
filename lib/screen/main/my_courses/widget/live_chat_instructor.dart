@@ -10,7 +10,14 @@ import 'text_chat_button.dart';
 import 'video_chat_button.dart';
 
 class LiveChatInstructor extends StatelessWidget {
-  const LiveChatInstructor({Key? key}) : super(key: key);
+  final VoidCallback? onCallPressed;
+  final VoidCallback? onChatPressed;
+
+  const LiveChatInstructor({
+    Key? key,
+    required this.onCallPressed,
+    required this.onChatPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +74,9 @@ class LiveChatInstructor extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      VideoChatButton(onPressed: () {}),
+                      VideoChatButton(onPressed: onCallPressed),
                       const SizedBox(height: 5),
-                      TextChatButton(onPressed: () {}),
+                      TextChatButton(onPressed: onChatPressed),
                     ],
                   ),
                 ),
