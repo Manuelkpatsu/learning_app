@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/models/instructor.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
 import 'instructor_course_text.dart';
@@ -12,11 +13,13 @@ import 'video_chat_button.dart';
 class LiveChatInstructor extends StatelessWidget {
   final VoidCallback? onCallPressed;
   final VoidCallback? onChatPressed;
+  final Instructor instructor;
 
   const LiveChatInstructor({
     Key? key,
     required this.onCallPressed,
     required this.onChatPressed,
+    required this.instructor,
   }) : super(key: key);
 
   @override
@@ -43,22 +46,22 @@ class LiveChatInstructor extends StatelessWidget {
           IntrinsicHeight(
             child: Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      InstructorText(),
-                      SizedBox(height: 10),
+                      const InstructorText(),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
-                          InstructorImage(image: 'assets/images/instructor.png'),
-                          SizedBox(width: 18),
+                          InstructorImage(image: instructor.image),
+                          const SizedBox(width: 18),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                InstructorNameText(name: 'David Smith'),
-                                InstructorCourseText(course: 'UX Designer'),
+                                InstructorNameText(name: instructor.name),
+                                InstructorCourseText(course: instructor.description),
                               ],
                             ),
                           ),

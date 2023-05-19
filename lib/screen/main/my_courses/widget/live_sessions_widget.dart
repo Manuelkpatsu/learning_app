@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/models/course.dart';
+import 'package:learning_app/models/instructor.dart';
 import 'package:learning_app/screen/widget/see_more_button.dart';
 
 import 'live_chat_instructor.dart';
@@ -10,12 +11,14 @@ class LiveSessionsWidget extends StatelessWidget {
   final List<Course> liveCourses;
   final VoidCallback? onCallPressed;
   final VoidCallback? onChatPressed;
+  final Instructor instructor;
 
   const LiveSessionsWidget({
     Key? key,
     required this.liveCourses,
     required this.onCallPressed,
     required this.onChatPressed,
+    required this.instructor,
   }) : super(key: key);
 
   @override
@@ -61,6 +64,7 @@ class LiveSessionsWidget extends StatelessWidget {
               child: LiveChatInstructor(
                 onCallPressed: onCallPressed,
                 onChatPressed: onChatPressed,
+                instructor: instructor,
               ),
             ),
           ),

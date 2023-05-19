@@ -24,6 +24,14 @@ dependencies:
   modal_bottom_sheet: ^3.0.0-pre
   zego_uikit_prebuilt_call: ^3.3.15
   uuid: ^3.0.7
+  flutter_chat_types: ^3.6.1
+  flutter_chat_ui: ^1.6.8
+  http: ^0.13.6
+  image_picker: ^0.8.7+5
+  file_picker: ^5.2.10
+  mime: ^1.0.4
+  open_filex: ^4.3.2
+  path_provider: ^2.0.15
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -40,6 +48,7 @@ flutter:
     - assets/images/categories/
     - assets/images/friends/
     - assets/images/payment_methods/
+    - assets/messages.json
 
   # fonts:
   #   - family: Schyler

@@ -3,6 +3,7 @@ import 'package:learning_app/models/category.dart';
 import 'package:learning_app/models/course.dart';
 import 'package:learning_app/models/instructor.dart';
 import 'package:learning_app/screen/main/call_screen/call_screen.dart';
+import 'package:learning_app/screen/main/message_chat/message_chat_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
@@ -420,7 +421,13 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
                 : _selectedCategory == MyCoursesCategory.live
                     ? LiveSessionsWidget(
                         liveCourses: _liveCourses,
-                        onChatPressed: () {},
+                        instructor: _instructor,
+                        onChatPressed: () {
+                          Navigator.of(context).pushNamed(
+                            MessageChatScreen.routeName,
+                            arguments: _instructor,
+                          );
+                        },
                         onCallPressed: () {
                           Navigator.of(context).pushNamed(
                             CallScreen.routeName,

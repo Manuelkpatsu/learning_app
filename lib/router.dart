@@ -15,6 +15,7 @@ import 'screen/main/course_detail/course_detail_screen.dart';
 import 'screen/main/explore/explore_screen.dart';
 import 'screen/main/home/home_screen.dart';
 import 'screen/main/invite_friends/invite_friends_screen.dart';
+import 'screen/main/message_chat/message_chat_screen.dart';
 import 'screen/main/my_courses/my_courses_screen.dart';
 import 'screen/main/payment_method/payment_method_screen.dart';
 import 'screen/main/payment_success/payment_success_screen.dart';
@@ -71,6 +72,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case CallScreen.routeName:
       Instructor argument = settings.arguments as Instructor;
       return MaterialPageRoute(builder: (_) => CallScreen(instructor: argument));
+    case MessageChatScreen.routeName:
+      Instructor argument = settings.arguments as Instructor;
+      return MaterialPageRoute(builder: (_) => MessageChatScreen(instructor: argument));
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(

@@ -33,6 +33,8 @@
     <string>We require camera access to connect to a call</string>
     <key>NSMicrophoneUsageDescription</key>
     <string>We require microphone access to connect to a call</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Choose photo to update your account picture.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
