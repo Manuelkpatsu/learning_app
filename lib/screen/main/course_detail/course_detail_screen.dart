@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:learning_app/models/course.dart';
 import 'package:learning_app/screen/main/payment_method/payment_method_screen.dart';
+import 'package:learning_app/screen/main/rating_review/rating_review_screen.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/theme/custom_color.dart';
@@ -65,6 +66,15 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
       appBar: AppBar(
         title: AppBarTitle(title: appBarTitleText()),
         centerTitle: true,
+        actions: [
+          IconButton(
+            splashRadius: 20,
+            onPressed: () {
+              Navigator.of(context).pushNamed(RatingReviewScreen.routeName);
+            },
+            icon: const Icon(IconlyLight.star),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),

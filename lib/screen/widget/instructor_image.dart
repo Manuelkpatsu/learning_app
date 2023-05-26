@@ -3,13 +3,14 @@ import 'package:learning_app/theme/custom_color.dart';
 
 class InstructorImage extends StatelessWidget {
   final String image;
+  final double size;
 
-  const InstructorImage({Key? key, required this.image}) : super(key: key);
+  const InstructorImage({Key? key, required this.image, this.size = 24}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 24,
+      radius: size,
       backgroundImage: AssetImage(image),
       backgroundColor: CustomColor.photoBackgroundColor,
     );

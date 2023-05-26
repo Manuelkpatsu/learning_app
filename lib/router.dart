@@ -21,6 +21,7 @@ import 'screen/main/payment_method/payment_method_screen.dart';
 import 'screen/main/payment_success/payment_success_screen.dart';
 import 'screen/main/profile/profile_screen.dart';
 import 'screen/main/progress/progress_screen.dart';
+import 'screen/main/rating_review/rating_review_screen.dart';
 import 'screen/onboard/onboard_screen.dart';
 import 'screen/splash/splash_screen.dart';
 import 'screen/welcome/welcome_screen.dart';
@@ -75,6 +76,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case MessageChatScreen.routeName:
       Instructor argument = settings.arguments as Instructor;
       return MaterialPageRoute(builder: (_) => MessageChatScreen(instructor: argument));
+    case RatingReviewScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const RatingReviewScreen());
     default:
       return MaterialPageRoute(
         builder: (_) => Scaffold(
