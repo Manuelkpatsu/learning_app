@@ -14,25 +14,29 @@ class CategoryTile extends StatelessWidget {
   final Category category;
   final VoidCallback? onPressed;
   final VoidCallback? bookmarkPressed;
+  final double width;
+  final double bottomPosition;
 
   const CategoryTile({
     Key? key,
     required this.category,
     required this.onPressed,
     required this.bookmarkPressed,
+    this.width = double.infinity,
+    this.bottomPosition = 9,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      clipBehavior: Clip.antiAlias,
+      clipBehavior: Clip.none,
       children: [
         InkWell(
           onTap: onPressed,
           borderRadius: BorderRadius.circular(10),
           child: Ink(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 9),
-            width: 213,
+            width: width,
             height: 195,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -52,7 +56,7 @@ class CategoryTile extends StatelessWidget {
                   children: [
                     CategoryNameText(type: category.type),
                     const SizedBox(width: 10),
-                    BookmarkButton(onPressed: bookmarkPressed),
+                    BookmarkButton(onPressed: bookmarkPressed, iconColor: CustomColor.bodyColor),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -70,11 +74,11 @@ class CategoryTile extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+        Positioned(
           right: 0,
           left: 0,
-          bottom: 9,
-          child: ArrowIcon(),
+          bottom: bottomPosition,
+          child: const ArrowIcon(),
         )
       ],
     );

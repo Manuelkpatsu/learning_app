@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/models/category.dart';
 import 'package:learning_app/models/course.dart';
 import 'package:learning_app/models/instructor.dart';
+import 'package:learning_app/screen/main/categories/categories_screen.dart';
 import 'package:learning_app/screen/main/course_detail/course_detail_screen.dart';
 import 'package:learning_app/screen/main/invite_friends/invite_friends_screen.dart';
 import 'package:learning_app/screen/widget/category_tile/category_tile.dart';
@@ -212,7 +213,11 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const CategoriesText(),
-                  SeeMoreButton(onPressed: () {}),
+                  SeeMoreButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(CategoriesScreen.routeName);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -232,6 +237,7 @@ class HomeScreen extends StatelessWidget {
                       category: category,
                       onPressed: () {},
                       bookmarkPressed: () {},
+                      width: 213,
                     ),
                   );
                 },

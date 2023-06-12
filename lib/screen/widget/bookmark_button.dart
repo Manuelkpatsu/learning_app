@@ -18,8 +18,8 @@ class BookmarkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      splashColor: CustomColor.yellowColor.withOpacity(0.1),
-      highlightColor: CustomColor.yellowColor.withOpacity(0.1),
+      splashColor: iconColor.withOpacity(0.1),
+      highlightColor: iconColor.withOpacity(0.1),
       borderRadius: BorderRadius.circular(5),
       child: Padding(
         padding: const EdgeInsets.all(5),
