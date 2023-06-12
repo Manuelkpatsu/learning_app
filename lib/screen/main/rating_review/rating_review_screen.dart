@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/models/review.dart';
 import 'package:learning_app/models/user.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
+import 'package:learning_app/screen/widget/gradient_button.dart';
 import 'package:learning_app/screen/widget/instructor_image.dart';
+import 'package:learning_app/theme/custom_color.dart';
 
+import 'widget/add_review_widget.dart';
 import 'widget/rating_statistics_tile.dart';
 import 'widget/rating_text.dart';
 import 'widget/review_tile.dart';
@@ -183,7 +186,47 @@ class _RatingReviewScreenState extends State<RatingReviewScreen> {
                 );
               }).toList(),
             ),
+            const SizedBox(height: 100),
           ],
+        ),
+      ),
+      bottomSheet: IntrinsicHeight(
+        child: Container(
+          decoration: BoxDecoration(
+            color: const Color(0xfff3f6ff),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(15),
+              bottom: Radius.zero,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xffe6ebf3).withOpacity(0.5),
+                offset: const Offset(0, 15),
+                blurRadius: 60,
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 30),
+            child: GradientButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (ctx) => const AddReviewWidget(),
+                  enableDrag: true,
+                  barrierColor: CustomColor.overlayColor.withOpacity(0.22),
+                  clipBehavior: Clip.hardEdge,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(30),
+                      bottom: Radius.zero,
+                    ),
+                  ),
+                );
+              },
+              widget: const Text('Add Review'),
+            ),
+          ),
         ),
       ),
     );
