@@ -5,10 +5,12 @@ import 'package:learning_app/models/user.dart';
 import 'package:learning_app/screen/widget/app_bar_title.dart';
 import 'package:learning_app/screen/widget/instructor_image.dart';
 
+import 'widget/rating_statistics_tile.dart';
 import 'widget/rating_text.dart';
 import 'widget/review_tile.dart';
 import 'widget/reviews_text.dart';
 import 'widget/show_photo_checkbox.dart';
+import 'widget/total_ratings_text.dart';
 import 'widget/with_photo_text.dart';
 
 class RatingReviewScreen extends StatefulWidget {
@@ -99,8 +101,45 @@ class _RatingReviewScreenState extends State<RatingReviewScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 RatingText(rate: _sum / _count),
-                const SizedBox(width: 20),
-                Expanded(child: Container()),
+                const SizedBox(width: 50),
+                Expanded(
+                  child: Column(
+                    children: [
+                      RatingStatisticsTile(
+                        numberOfStars: 5,
+                        totalOccurrenceOfRating:
+                            _reviews.where((review) => review.rate == 5).length,
+                        totalNumberOfRatings: _reviews.length,
+                      ),
+                      RatingStatisticsTile(
+                        numberOfStars: 4,
+                        totalOccurrenceOfRating:
+                            _reviews.where((review) => review.rate == 4).length,
+                        totalNumberOfRatings: _reviews.length,
+                      ),
+                      RatingStatisticsTile(
+                        numberOfStars: 3,
+                        totalOccurrenceOfRating:
+                            _reviews.where((review) => review.rate == 3).length,
+                        totalNumberOfRatings: _reviews.length,
+                      ),
+                      RatingStatisticsTile(
+                        numberOfStars: 2,
+                        totalOccurrenceOfRating:
+                            _reviews.where((review) => review.rate == 2).length,
+                        totalNumberOfRatings: _reviews.length,
+                      ),
+                      RatingStatisticsTile(
+                        numberOfStars: 1,
+                        totalOccurrenceOfRating:
+                            _reviews.where((review) => review.rate == 1).length,
+                        totalNumberOfRatings: _reviews.length,
+                      ),
+                      const SizedBox(height: 5),
+                      TotalRatingsText(totalRatings: _reviews.length),
+                    ],
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 20),

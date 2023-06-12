@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app/theme/custom_color.dart';
 
-class RatingTile extends StatelessWidget {
+class RatingStatisticsTile extends StatelessWidget {
   final int numberOfStars;
+  final int totalOccurrenceOfRating;
+  final int totalNumberOfRatings;
 
-  const RatingTile({Key? key, required this.numberOfStars}) : super(key: key);
+  const RatingStatisticsTile({
+    Key? key,
+    required this.numberOfStars,
+    required this.totalOccurrenceOfRating,
+    required this.totalNumberOfRatings,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          alignment: Alignment.centerRight,
+        SizedBox(
           width: 40,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: List.generate(numberOfStars, (index) {
               return const Icon(Icons.star, size: 7, color: CustomColor.statisticsColor);
             }),
@@ -25,7 +32,7 @@ class RatingTile extends StatelessWidget {
             minHeight: 2.5,
             color: CustomColor.statisticsColor,
             backgroundColor: CustomColor.statisticsProgressColor,
-            value: ,
+            value: (totalOccurrenceOfRating / totalNumberOfRatings) * 1,
           ),
         ),
       ],
